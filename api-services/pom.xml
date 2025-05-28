@@ -10,11 +10,11 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.org.services</groupId>
-	<artifactId>API-Services</artifactId>
+	<artifactId>api-services</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
-	<name>API-Services</name>
-	<description>API-Services</description>
+	<name>api-services</name>
+	<description>api-services</description>
 	<url />
 	<licenses>
 		<license />
