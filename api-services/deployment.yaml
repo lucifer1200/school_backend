@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-services
+spec:s
+  replicas: 2
+  selector:
+    matchLabels:
+      app: api-services
+  template:
+    metadata:
+      labels:
+        app: api-services
+    spec:
+      containers:
+      - name: api-services
+        image: us-central1-docker.pkg.dev/$GOOGLE_CLOUD_PROJECT/api-services
+        ports:
+        - containerPort: 8080
