@@ -3,7 +3,7 @@ FROM openjdk:21-jdk-slim
 
 
 # Set Tomcat version and installation directory
-ENV TOMCAT_VERSION=10.0.27
+ENV TOMCAT_VERSION=10.1.29
 ENV CATALINA_HOME=/usr/local/tomcat
 ENV PATH=$CATALINA_HOME/bin:$PATH
 
