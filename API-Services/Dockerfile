@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y curl && \
 RUN rm -rf $CATALINA_HOME/webapps/*
 
 # Copy your WAR file into Tomcat's webapps directory as ROOT.war
-COPY target/API-Services-0.0.1-SNAPSHOT.war $CATALINA_HOME/webapps/ROOT.war
+COPY target/API-Services-0.0.1-SNAPSHOT.war $CATALINA_HOME/webapps/API-Services-0.0.1-SNAPSHOT.war
 
 # Expose Tomcat port
 EXPOSE 8080
