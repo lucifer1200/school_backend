@@ -1,5 +1,6 @@
 # Use OpenJDK 21 as base image
-FROM openjdk:21-jdk
+FROM openjdk:21-jdk-slim
+
 
 # Set Tomcat version and installation directory
 ENV TOMCAT_VERSION=10.0.27
