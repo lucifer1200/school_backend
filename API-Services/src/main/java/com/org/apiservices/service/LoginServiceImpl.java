@@ -146,4 +146,35 @@ public class LoginServiceImpl implements LoginService {
 
 		return resObj;
 	}
+
+	@Override
+	public CommonResponse userExistsCheck(LoginReq reqObj) {
+
+		CommonResponse respObj = new CommonResponse();
+
+		String query = CustomQuery.VALIDATE_USER_EXISTS + reqObj.getMobNumber();
+
+		System.out.println("query----" + query);
+
+		try {
+			Integer count = jdbcTemplate.queryForObject(query, Integer.class);
+			if (count != null && count > 0) {
+				respObj.setStatusCode(MessageConstants.SUCCESS_STATUSCODE);
+				respObj.setStatusDesc(MessageConstants.SUCCESS);
+			} else {
+				respObj.setStatusCode(MessageConstants.ERROR_STATUSCODE);
+				respObj.setStatusDesc(MessageConstants.FAILURE);
+				respObj.setMessage(MessageConstants.NO_RECORDS_FOUND);
+			}
+
+		} catch (Exception e) {
+			log.error("Error validating user exists", e);
+			respObj.setStatusCode(MessageConstants.TECH_ERROR_STATUSCODE);
+			respObj.setStatusDesc(MessageConstants.FAILURE);
+			respObj.setMessage(MessageConstants.TECH_ERROR_MESSAGE);
+		}
+
+		return respObj;
+
+	}
 }

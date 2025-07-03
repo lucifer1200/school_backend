@@ -23,7 +23,16 @@ public class LoginController {
     private final LoginService loginService;
     private final EncryptionUtils encryptionUtils;
     private final ObjectMapper objectMapper = new ObjectMapper();
-
+    
+    @PostMapping("/UserExists")
+    public ResponseEntity<?> UserExistsCheck(@Validated @RequestBody String encryptedUserExistsReq) throws Exception {
+        String decryptedLoginReq = EncryptionUtils.decrypt(encryptedUserExistsReq);
+        LoginReq userExistsReq = objectMapper.readValue(decryptedLoginReq, LoginReq.class);
+        CommonResponse loginDetails = loginService.userExistsCheck(userExistsReq);
+        String encryptedLoginDetails = encryptionUtils.encrypt(objectMapper.writeValueAsString(loginDetails));
+        return ResponseEntity.ok(encryptedLoginDetails);
+    }
+    
     @PostMapping("/Login")
     public ResponseEntity<?> Login(@Validated @RequestBody String encryptedLoginReq) throws Exception {
         String decryptedLoginReq = EncryptionUtils.decrypt(encryptedLoginReq);

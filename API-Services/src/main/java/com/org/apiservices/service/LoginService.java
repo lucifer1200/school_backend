@@ -14,4 +14,6 @@ public interface LoginService {
 	
 	CommonResponse register(RegistrationReq reqObj);
 	
+	CommonResponse userExistsCheck(LoginReq reqObj);
+	
 }

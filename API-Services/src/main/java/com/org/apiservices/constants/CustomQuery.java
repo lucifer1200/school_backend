@@ -12,6 +12,7 @@ public final class CustomQuery {
 	public static final String SHORTED_SCHOOLS_BY_ID = "select * from short_listed_school where SHORTLISTED_BY=";
 	public static final String SHORTED_SCHOOLS_BY_ID_CLAUSE = "and DEL_FLAG !='Y' OR DEL_FLAG is null";
 	public static final String VALIDATE_LOGIN_PIN = "select * from user_details where USER_PIN=";
+	public static final String VALIDATE_USER_EXISTS = "select count(*) from user_details where USER_MOBILE1=";
 	public static final String VALIDATE_LOGIN_PIN_CLAUSE = "and USER_MOBILE1 =";
 	public static final String DELETE_SCHOOL = "UPDATE short_listed_school SET DEL_FLAG=? WHERE SCHOOL_ID=? AND SHORTLISTED_BY=?;";
 	
